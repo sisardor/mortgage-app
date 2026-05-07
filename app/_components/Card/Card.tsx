@@ -1,4 +1,5 @@
 import { Product } from "@/app/_types/Product";
+import "./Card.css";
 
 const Card = ({ product, isBestRate, onClick, className, isLoading, selectedProduct }: {
     product: Product | undefined;
@@ -12,7 +13,7 @@ const Card = ({ product, isBestRate, onClick, className, isLoading, selectedProd
 
 
     return (
-       <div key={id} className={`m-8 border border-gray-300 rounded-2xl p-5 sm:p-10 ${className || ''}`}>
+       <div key={id} className={`product-card m-8 border border-gray-300 rounded-2xl p-5 sm:p-10 ${className || ''}`}>
             {(isBestRate) && (<h2 className="text-xl font-semibold mb-2">Best fixed</h2>)}
             <p className="text-gray-500 mb-6">{type}</p>
             <p className="text-gray-600 mb-6">{name}</p>

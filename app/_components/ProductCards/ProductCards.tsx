@@ -4,6 +4,7 @@ import { getProducts, createApplication } from "@/app/_services/product.service"
 import { Product } from '@/app/_types/Product';
 import Card from '../Card';
 import { useRouter } from 'next/navigation'
+import Spinner from '../Spinner';
 
 
 const ProductCard = ({ }) => {
@@ -58,6 +59,7 @@ const ProductCard = ({ }) => {
 
     return (
         <div className='sm:flex sm:flex-row justify-center sm:-mt-8'>
+            {(cards && cards.length === 0) && (<Spinner />)}
             <div className="">
                 {cards}
             </div>

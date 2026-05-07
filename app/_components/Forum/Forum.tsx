@@ -1,5 +1,6 @@
 import { Applicant } from "@/app/_types/Applicant";
 import { useState } from "react";
+import Spinner from "../Spinner";
 
 type ErrorType = {
     firstName?: string;
@@ -58,7 +59,7 @@ const Forum = ({ onSubmit, applicant }:
     };
 
     return (
-        <div className="m-8 border border-gray-300 rounded-2xl p-8 bg-white shadow-sm">
+        <div className="m-8 border border-gray-300 rounded-2xl p-8 bg-white shadow-sm" style={{position: 'relative'}}>
             <h2 className="mb-6 text-lg font-semibold">
                 Main applicant information
             </h2>
@@ -138,6 +139,10 @@ const Forum = ({ onSubmit, applicant }:
                 onClick={handleSave}
                 className="inline-flex border-gray-400 items-center mt-8 border rounded-xl py-3 px-6 hover:bg-gray-50"
             >
+                {(isLoading) && (
+                    <Spinner />
+                )}
+                
                 {(isLoading) && (
                     <>
                         <svg aria-hidden="true" className="w-4 h-4 text-neutral-tertiary animate-spin fill-brand me-2" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
